@@ -1,0 +1,3 @@
+/home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles/rebuild_cache.dir
+/home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles/ch1_rotation.dir
+/home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles/edit_cache.dir
