@@ -46,5 +46,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/ch1_rotation.dir/DependInfo.cmake"
+  "CMakeFiles/ch1_rotation_use_libs.dir/DependInfo.cmake"
+  "CMakeFiles/ch1_rotation_handmade.dir/DependInfo.cmake"
   )

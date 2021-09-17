@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/ch1_rotation_use_libs.dir/ch1_rotation_use_libs.cpp.o  -o ch1_rotation_use_libs 

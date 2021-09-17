@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/ch1_rotation_handmade.dir/ch1_rotation_handmade.cpp.o  -o ch1_rotation_handmade 

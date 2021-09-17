@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ch1_rotation
+# Target rules for targets named ch1_rotation_use_libs
 
 # Build rule for target.
-ch1_rotation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ch1_rotation
-.PHONY : ch1_rotation
+ch1_rotation_use_libs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ch1_rotation_use_libs
+.PHONY : ch1_rotation_use_libs
 
 # fast build rule for target.
-ch1_rotation/fast:
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/build
-.PHONY : ch1_rotation/fast
+ch1_rotation_use_libs/fast:
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/build
+.PHONY : ch1_rotation_use_libs/fast
 
-ch1_rotation.o: ch1_rotation.cpp.o
+#=============================================================================
+# Target rules for targets named ch1_rotation_handmade
 
-.PHONY : ch1_rotation.o
+# Build rule for target.
+ch1_rotation_handmade: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ch1_rotation_handmade
+.PHONY : ch1_rotation_handmade
+
+# fast build rule for target.
+ch1_rotation_handmade/fast:
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/build
+.PHONY : ch1_rotation_handmade/fast
+
+ch1_rotation_handmade.o: ch1_rotation_handmade.cpp.o
+
+.PHONY : ch1_rotation_handmade.o
 
 # target to build an object file
-ch1_rotation.cpp.o:
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/ch1_rotation.cpp.o
-.PHONY : ch1_rotation.cpp.o
+ch1_rotation_handmade.cpp.o:
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/ch1_rotation_handmade.cpp.o
+.PHONY : ch1_rotation_handmade.cpp.o
 
-ch1_rotation.i: ch1_rotation.cpp.i
+ch1_rotation_handmade.i: ch1_rotation_handmade.cpp.i
 
-.PHONY : ch1_rotation.i
+.PHONY : ch1_rotation_handmade.i
 
 # target to preprocess a source file
-ch1_rotation.cpp.i:
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/ch1_rotation.cpp.i
-.PHONY : ch1_rotation.cpp.i
+ch1_rotation_handmade.cpp.i:
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/ch1_rotation_handmade.cpp.i
+.PHONY : ch1_rotation_handmade.cpp.i
 
-ch1_rotation.s: ch1_rotation.cpp.s
+ch1_rotation_handmade.s: ch1_rotation_handmade.cpp.s
 
-.PHONY : ch1_rotation.s
+.PHONY : ch1_rotation_handmade.s
 
 # target to generate assembly for a file
-ch1_rotation.cpp.s:
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/ch1_rotation.cpp.s
-.PHONY : ch1_rotation.cpp.s
+ch1_rotation_handmade.cpp.s:
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/ch1_rotation_handmade.cpp.s
+.PHONY : ch1_rotation_handmade.cpp.s
+
+ch1_rotation_use_libs.o: ch1_rotation_use_libs.cpp.o
+
+.PHONY : ch1_rotation_use_libs.o
+
+# target to build an object file
+ch1_rotation_use_libs.cpp.o:
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/ch1_rotation_use_libs.cpp.o
+.PHONY : ch1_rotation_use_libs.cpp.o
+
+ch1_rotation_use_libs.i: ch1_rotation_use_libs.cpp.i
+
+.PHONY : ch1_rotation_use_libs.i
+
+# target to preprocess a source file
+ch1_rotation_use_libs.cpp.i:
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/ch1_rotation_use_libs.cpp.i
+.PHONY : ch1_rotation_use_libs.cpp.i
+
+ch1_rotation_use_libs.s: ch1_rotation_use_libs.cpp.s
+
+.PHONY : ch1_rotation_use_libs.s
+
+# target to generate assembly for a file
+ch1_rotation_use_libs.cpp.s:
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/ch1_rotation_use_libs.cpp.s
+.PHONY : ch1_rotation_use_libs.cpp.s
 
 # Help Target
 help:
@@ -157,11 +197,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... ch1_rotation"
 	@echo "... edit_cache"
-	@echo "... ch1_rotation.o"
-	@echo "... ch1_rotation.i"
-	@echo "... ch1_rotation.s"
+	@echo "... ch1_rotation_use_libs"
+	@echo "... ch1_rotation_handmade"
+	@echo "... ch1_rotation_handmade.o"
+	@echo "... ch1_rotation_handmade.i"
+	@echo "... ch1_rotation_handmade.s"
+	@echo "... ch1_rotation_use_libs.o"
+	@echo "... ch1_rotation_use_libs.i"
+	@echo "... ch1_rotation_use_libs.s"
 .PHONY : help
 
 

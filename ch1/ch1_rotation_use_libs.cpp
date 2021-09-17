@@ -57,7 +57,10 @@ int main(){
     Sophus::SO3d updated_SO3_R = SO3_R * Sophus::SO3d::exp(w);
     cout << "============\n" << "updated_SO3_R = \n" << updated_SO3_R.matrix() << endl;
 
-
+    // 两种方法之间的差值
+    Eigen::Matrix3d diff = q.toRotationMatrix() - updated_SO3_R.matrix();
+    cout << "============\n" << " the difference between 2 methods is: \n" 
+    << diff << endl;
 
 
 

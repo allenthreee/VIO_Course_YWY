@@ -60,39 +60,76 @@ CMAKE_SOURCE_DIR = /home/allen/桌面/VIO_Course_YWY/ch1
 CMAKE_BINARY_DIR = /home/allen/桌面/VIO_Course_YWY/ch1/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/ch1_rotation.dir
+# Target rules for target CMakeFiles/ch1_rotation_use_libs.dir
 
 # All Build rule for target.
-CMakeFiles/ch1_rotation.dir/all:
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/depend
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles --progress-num=1,2 "Built target ch1_rotation"
-.PHONY : CMakeFiles/ch1_rotation.dir/all
+CMakeFiles/ch1_rotation_use_libs.dir/all:
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/depend
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles --progress-num=3,4 "Built target ch1_rotation_use_libs"
+.PHONY : CMakeFiles/ch1_rotation_use_libs.dir/all
 
 # Include target in all.
-all: CMakeFiles/ch1_rotation.dir/all
+all: CMakeFiles/ch1_rotation_use_libs.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ch1_rotation.dir/rule: cmake_check_build_system
+CMakeFiles/ch1_rotation_use_libs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ch1_rotation.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ch1_rotation_use_libs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles 0
-.PHONY : CMakeFiles/ch1_rotation.dir/rule
+.PHONY : CMakeFiles/ch1_rotation_use_libs.dir/rule
 
 # Convenience name for target.
-ch1_rotation: CMakeFiles/ch1_rotation.dir/rule
+ch1_rotation_use_libs: CMakeFiles/ch1_rotation_use_libs.dir/rule
 
-.PHONY : ch1_rotation
-
-# clean rule for target.
-CMakeFiles/ch1_rotation.dir/clean:
-	$(MAKE) -f CMakeFiles/ch1_rotation.dir/build.make CMakeFiles/ch1_rotation.dir/clean
-.PHONY : CMakeFiles/ch1_rotation.dir/clean
+.PHONY : ch1_rotation_use_libs
 
 # clean rule for target.
-clean: CMakeFiles/ch1_rotation.dir/clean
+CMakeFiles/ch1_rotation_use_libs.dir/clean:
+	$(MAKE) -f CMakeFiles/ch1_rotation_use_libs.dir/build.make CMakeFiles/ch1_rotation_use_libs.dir/clean
+.PHONY : CMakeFiles/ch1_rotation_use_libs.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/ch1_rotation_use_libs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ch1_rotation_handmade.dir
+
+# All Build rule for target.
+CMakeFiles/ch1_rotation_handmade.dir/all:
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/depend
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles --progress-num=1,2 "Built target ch1_rotation_handmade"
+.PHONY : CMakeFiles/ch1_rotation_handmade.dir/all
+
+# Include target in all.
+all: CMakeFiles/ch1_rotation_handmade.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ch1_rotation_handmade.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ch1_rotation_handmade.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/allen/桌面/VIO_Course_YWY/ch1/build/CMakeFiles 0
+.PHONY : CMakeFiles/ch1_rotation_handmade.dir/rule
+
+# Convenience name for target.
+ch1_rotation_handmade: CMakeFiles/ch1_rotation_handmade.dir/rule
+
+.PHONY : ch1_rotation_handmade
+
+# clean rule for target.
+CMakeFiles/ch1_rotation_handmade.dir/clean:
+	$(MAKE) -f CMakeFiles/ch1_rotation_handmade.dir/build.make CMakeFiles/ch1_rotation_handmade.dir/clean
+.PHONY : CMakeFiles/ch1_rotation_handmade.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/ch1_rotation_handmade.dir/clean
 
 .PHONY : clean
 
