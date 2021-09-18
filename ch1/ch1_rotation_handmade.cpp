@@ -6,9 +6,19 @@
 #include "sophus/se3.hpp"
 #include <math.h>
 using namespace std;
-/**
- *   1. 定义 q & R
- *  2. define rotaion vector w = [0.01, 0.02, 0.03]T
+
+/**************************Eigen********************
+ * eigen 中各种旋转表示方式
+ * 1. rotation matrix(3x3) ----->  Eigen::Matrix3d
+ * 2. 旋转向量(3x1) ----->  Eigen::AngleAxis 每个轴，对应转多少度
+ * 3. quterniond(4x1) ------------> Eigen::Qaterniond
+ * 4. translation vector(3x1)-----> Eigen::Vector3d
+ * 5. transformation matrix(4x4)---> Eigen::Isometry3d
+*/
+
+/************************* STEPS***************************
+ * 1. 定义 q & R
+ * 2. define rotaion vector w = [0.01, 0.02, 0.03]T
  * 
  * 3. 分别用两种方法更新旋转
  *       q = q * [1, 1/2 * w]T
@@ -16,16 +26,6 @@ using namespace std;
  *       eigen中无法做矩阵乘法，或许用罗德里格斯公式
  *       exp(theta a) = cos(theta)I + (1 - cos(theta))aaT + sin(theta)a^
  * 4. 两种方法都改为旋转矩阵显示 / 或者用欧拉角显示？？
-*/
-
-
-/**
- * eigen 中各种旋转表示方式
- * 1. rotation matrix(3x3) ----->  Eigen::Matrix3d
- * 2. 旋转向量(3x1) ----->  Eigen::AngleAxis 每个轴，对应转多少度
- * 3. quterniond(4x1) ------------> Eigen::Qaterniond
- * 4. translation vector(3x1)-----> Eigen::Vector3d
- * 5. transformation matrix(4x4)---> Eigen::Isometry3d
 */
 
 
@@ -37,23 +37,27 @@ int main(){
     std::cout << "the trace of R is  " << trace_R << endl; 
     double w_quaterniond = sqrt(trace_R + 1) / 2;
     double z = (R(1,0) - R(0,1)) / (4 * w_quaterniond);
-    Eigen::Quaterniond q_handmade( w_quaterniond, 0, 0, z );  // 实部在前，虚部在后？？
-    // 为什么构造函数和显示的时候顺序不一样啊，因为Eigen::Quaterniond q(w, x, y, z) 的构造函数
+    Eigen::Quaterniond q_handmade( w_quaterniond, 0, 0, z ); 
+    // 为什么构造函数和显示的时候顺序不一样
+    // 因为Eigen::Quaterniond q(w, x, y, z) 的构造函数
     // 单数如果构造函数是 Eigen::Quaterniond q(Eigen::vector4d(x, y, z, w))
     // 但是显示就是 Eigen::Quaterniond q(x, y, z, w); 
     // 这个确实比较奇怪
 
-    // Eigen::Quaterniond q_handmade((R(2,1)-R(1,2)), (R(0,2) - R(2,0)), (R(1,0)-R(0,1)), sqrt(trace_R+1)/2);
 
-    // q_eigen = Eigen::Quaterniond(R);      // 由旋转矩阵构造四元数，其他形式到四元数的转换
+    // q_eigen = Eigen::Quaterniond(R);     
+     // 由旋转矩阵构造四元数，其他形式到四元数的转换
 
     Sophus::SO3d SO3_R(R);  //SO3李群，由旋转矩阵R构造
 
     cout << "R is = " << endl << R << endl;
-    cout << "q transformed by Eigen is = " << q_eigen.coeffs().transpose() << endl; // 实部在后，虚部在前
-    cout << "q transformed by handmade is = " << q_handmade.coeffs().transpose() << endl; // 实部在后，虚部在前
-
-    cout << "R  from SO3_R is = " << endl << SO3_R.matrix() << endl;  // 李群创建的旋转矩阵
+    // 实部在后，虚部在前
+    cout << "q transformed by Eigen is = " << q_eigen.coeffs().transpose() << endl; 
+    // 实部在后，虚部在前
+    cout << "q transformed by handmade is = "
+     << q_handmade.coeffs().transpose() << endl; 
+    // 李群创建的旋转矩阵
+    cout << "R  from SO3_R is = " << endl << SO3_R.matrix() << endl;  
 
     Eigen::Vector3d so3 = SO3_R.log();
 
@@ -68,7 +72,7 @@ int main(){
     // 向量的方向
     Eigen::Vector3d a(0.01/theta, 0.02/theta, 0.03/theta);
     
-    // ***********************罗德里格斯公式实现 update*******************************//
+    // *******************罗德里格斯公式实现 update*************************//
     Eigen::Matrix3d update_matrix;
     // Rodrigues Formula:
     // R = cos(theta)I + (1 - cos(theta)aaT  + sin(theta)a^)
@@ -95,7 +99,7 @@ int main(){
 
     // 用handmade李代数演示更新
     R = R * w_hat_exp;
-    cout << "============\n" << "handmade R by Rodrigues' Formula = \n" << R << endl;
+    cout << "============\n" << "手写 R by Rodrigues' Formula = \n" << R << endl;
 
 
     //***********************sophus库实现*****************************
@@ -103,7 +107,8 @@ int main(){
     // cout << "w hat = \n" << Sophus::SO3d::hat(w) << endl;
     // 用李代数演示更新
     Sophus::SO3d updated_SO3_R = SO3_R * Sophus::SO3d::exp(w);
-    cout << "============\n" << "updated_SO3_R = \n" << updated_SO3_R.matrix() << endl;
+    cout << "============\n" << "updated_SO3_R = \n" 
+    << updated_SO3_R.matrix() << endl;
     
     //***********************四元数实现*****************************
     // 用四元数演示更新
@@ -112,7 +117,8 @@ int main(){
     // 更新q
     q_eigen = q_eigen * q_;
     q_eigen.normalize(); // 归一化
-    cout << "============\n" << "updated_q = \n" << q_eigen.toRotationMatrix() << endl;
+    cout << "============\n" << "updated_q = \n" 
+    << q_eigen.toRotationMatrix() << endl;
 
     
 
@@ -124,12 +130,8 @@ int main(){
     // cout << "============\n" << " the difference between 2 methods is: \n" 
     // << diff << endl;
 
-    // 肉眼可以看出三者之间的差值较小，因此就步分别做差了，否则还要两两比对，输出三个矩阵
-
-    
-
-
-
+    // 肉眼可以看出三者之间的差值较小，
+    // 因此就步分别做差了，否则还要两两比对，输出三个矩阵
     return 0;
 }
 
