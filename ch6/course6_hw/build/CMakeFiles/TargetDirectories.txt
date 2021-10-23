@@ -1,3 +1,0 @@
-/home/allen/VIO_Course_草稿/ch6/course6_hw/build/CMakeFiles/rebuild_cache.dir
-/home/allen/VIO_Course_草稿/ch6/course6_hw/build/CMakeFiles/estimate_depth.dir
-/home/allen/VIO_Course_草稿/ch6/course6_hw/build/CMakeFiles/edit_cache.dir
