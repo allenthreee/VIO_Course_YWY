@@ -116,12 +116,12 @@ bool Problem::Solve(int iterations) {
                 // 在新线性化点 构建 hessian
                 MakeHessian();
                 // TODO:: 这个判断条件可以丢掉，条件 b_max <= 1e-12 很难达到，这里的阈值条件不应该用绝对值，而是相对值
-//                double b_max = 0.0;
-//                for (int i = 0; i < b_.size(); ++i) {
-//                    b_max = max(fabs(b_(i)), b_max);
-//                }
-//                // 优化退出条件2： 如果残差 b_max 已经很小了，那就退出
-//                stop = (b_max <= 1e-12);
+    //                double b_max = 0.0;
+    //                for (int i = 0; i < b_.size(); ++i) {
+    //                    b_max = max(fabs(b_(i)), b_max);
+    //                }
+    //                // 优化退出条件2： 如果残差 b_max 已经很小了，那就退出
+    //                stop = (b_max <= 1e-12);
                 false_cnt = 0;
             } else {
                 false_cnt++;
@@ -164,9 +164,9 @@ void Problem::MakeHessian() {
     VecX b(VecX::Zero(size));
 
     // TODO:: accelate, accelate, accelate
-//#ifdef USE_OPENMP
-//#pragma omp parallel for
-//#endif
+    //#ifdef USE_OPENMP
+    //#pragma omp parallel for
+    //#endif
 
     // 遍历每个残差，并计算他们的雅克比，得到最后的 H = J^T * J
     for (auto &edge: edges_) {
