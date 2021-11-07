@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jun 15 18:18:24 2017
@@ -58,7 +59,7 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 rpy = []
 t = []
-for i in range(0,400,5):
+for i in range(0,600,5):
     ax.clear()    
     ax.scatter(x, y, z,c='g')
     
